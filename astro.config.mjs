@@ -8,4 +8,8 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
 	site: 'https://example.com',
 	integrations: [mdx(), sitemap()],
+	server: {
+		port: 3000,
+		allowedHosts: true,
+	}
 });
