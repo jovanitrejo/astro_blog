@@ -1,0 +1,26 @@
+{
+  "name": "astro_blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jovanitrejo/astro_blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jovanitrejo/astro_blog/issues"
+  },
+  "homepage": "https://github.com/jovanitrejo/astro_blog#readme",
+  "dependencies": {
+    "astro": "^6.0.4"
+  }
+}
