@@ -61,10 +61,14 @@ COPY package.json .
 COPY --from=deps /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/dist ./dist
 
-# Create pages dir so Astro doesn't warn about a missing pages directory,
-# then ensure the non-root `node` user can write to the app directory.
-RUN mkdir -p /usr/src/app/src/pages \
-    && chown -R node:node /usr/src/app
+# Copy source files needed for dev mode (Astro needs these to run dev server)
+COPY --from=build /usr/src/app/src ./src
+COPY --from=build /usr/src/app/astro.config.mjs .
+COPY --from=build /usr/src/app/tsconfig.json .
+COPY --from=build /usr/src/app/public ./public
+
+# Ensure the non-root `node` user can write to the app directory.
+RUN chown -R node:node /usr/src/app
 
 # Run the application as a non-root user.
 USER node
@@ -73,4 +77,4 @@ USER node
 EXPOSE 3000
 
 # Run the built preview instead of dev (dev expects source files).
-CMD ["npm","run","preview", "--", "--port", "3000", "--host", "0.0.0.0"]
+CMD ["npm","run","dev", "--", "--port", "3000", "--host", "0.0.0.0"]
