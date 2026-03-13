@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/jovanitrejo/astro_blog#readme",
   "dependencies": {
-    "astro": "^6.0.4"
+    "@astrojs/react": "^5.0.0",
+    "astro": "^6.0.4",
+    "xp.css": "^0.2.6"
   }
 }
