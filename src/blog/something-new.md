@@ -1,8 +1,18 @@
 ---
 title: 'Starting a blog, and the reason behind it'
 author: 'Jovani Trejo'
-publishDate: 2026-03-12T13:40:00Z
+publishDate: 2026-03-12T18:40:00
 description: 'This post discusses my journey into blogging'
 ---
 
-This is my first post!
+# Starting a blog
+Looking into my past projects, I've done a lot of self reflection and I've noticed that I treat my projects similarly to how some peope eat chicken wings or apples: you take a bite, you really enjoy it, yet you don't finish it.
+![Plate of half-eaten wings.](../images/half-eaten-wings.jpg)
+Part of it is because the passion dies out halfway, and so I thought, "what's something that I'd consistently like to do?" That answer came out to be talking. I love talking.
+
+Inspired by my past professor [Luther Tychonievich](https://luthert.web.illinois.edu), I figured maybe it would be nice to start my own blog! Not only is it an opportunity to talk about whatever's on my mind, I'd need something to put on my portfolio anyways, and possibly give others an opportunity to understand who I am as a person.
+
+I like the whole frutiger aero theme, so I decided to use it for my blog, but who knows. Things may change and I'll restyle the whole thing later on.
+
+## Moving Forward
+This blog will just be a fun way for me to experiment web development, talk about cool things going on in my life, and also just talk about my opinions.
