@@ -1,0 +1,44 @@
+---
+import Image from "astro/components/Image.astro";
+const { item, alt, text, href } = Astro.props;
+---
+
+<a href={href}>
+  <div class="file-folder">
+    <Image src={item} alt={alt} loading={'eager'} />
+    <p>{text}</p>
+  </div>
+</a>
+
+<style>
+  .file-folder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 180px;
+    height: 50px;
+  }
+
+  a {
+    color: #3498db;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+    height: 50px;
+  }
+
+  a:hover {
+    border-bottom-color: transparent;
+  }
+
+  .file-folder img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  .file-folder p {
+    margin: 4px 0 0 0;
+    text-align: center;
+  }
+</style>

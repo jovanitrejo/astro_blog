@@ -2,8 +2,8 @@
 // Welcome to Astro! Everything between these triple-dash code fences
 // is your "component frontmatter". It never runs in the browser.
 import MySiteLayout from '../layouts/MySiteLayout.astro'
-import FileExplorerItem from '../components/FileExplorerItem.astro'
 import genericTextDocIcon from '../images/generic_text_document.png'
+import FileExplorerItem from '../components/FileExplorerItem.astro'
 import backButtonIcon from '../images/back.png'
 import forwardButtonIcon from '../images/forward.png'
 import fileUploadIcon from '../images/up.png'
@@ -19,6 +19,9 @@ import myDocuments from '../images/my_documents.png'
 import myComputer from '../images/my_computer.png'
 import documentsAndSettings from '../images/folder_closed.png'
 import Image from 'astro/components/Image.astro'
+import { getCollection } from 'astro:content'
+
+const posts = await getCollection('blog');
 ---
 <!-- Below is your "component template." It's just HTML, but with
     some magic sprinkled in to help you build great templates. -->
@@ -29,7 +32,10 @@ import Image from 'astro/components/Image.astro'
           <div class="title-bar-controls">
           <button aria-label="Minimize"></button>
           <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
+          <a href="/" >
+                <button aria-label="Close">
+                </button>
+            </a>
         </div>
         </div>
         <div class="window-body">
@@ -42,10 +48,10 @@ import Image from 'astro/components/Image.astro'
               <p>Help</p>  
             </div>
             <div class="file-explorer-tools">
-              <div class="back-button">
+              <a href="/" class="back-button">
                 <Image src={backButtonIcon} alt="Windows XP back button icon" loading={'eager'}/>
                 <p>Back</p>
-              </div>
+              </a>
               <div class="forward-button">
                 <Image src={forwardButtonIcon} alt="Windows XP forward button icon" loading={'eager'}/>
               </div>
@@ -68,7 +74,7 @@ import Image from 'astro/components/Image.astro'
             </div>
             <div class="address-bar">
               <p>Address</p>
-              <input type="text" value="C:/Users/JovaniTrejo/Documents" />
+              <input type="text" value="C:/Users/JovaniTrejo/Documents/posts" />
               <div class="go-button">
                 <Image src={go} alt="Windows XP go button icon" loading={'eager'} />
                 <p>Go</p>
@@ -120,8 +126,11 @@ import Image from 'astro/components/Image.astro'
                 </div>
               </div>            
               <div class="window-spacing">
-                <FileExplorerItem item={genericTextDocIcon} alt="Windows XP text document icon" text="about_me.txt" href="/about"/>
-                <FileExplorerItem item={documentsAndSettings} alt="Windows XP folder icon" text="posts" href="/posts"/>
+                {posts.map((post) => (
+                  <>
+                    <FileExplorerItem item={genericTextDocIcon} alt={post.data.title} text={post.data.title.length > 15 ? `${post.data.title.slice(0, 15)}...` : `${post.data.title}.txt`} href={`/posts/${post.id}`} />
+                  </>
+                ))}
               </div>
             </div>
         </div>
@@ -145,8 +154,8 @@ import Image from 'astro/components/Image.astro'
       flex-direction: column;
     }
     .window p {
-      font-size: 13px;
-      color: black;
+        font-size: 13px;
+        color: black;
     }
     .window-body {
       overflow-y: auto;
