@@ -16,22 +16,22 @@ import { ClientRouter } from "astro:transitions";
     </body>
     <style>
         html {
+            height: 100dvh;
+        }
+        body {
             background-image: url('/windows_xp_15.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            background-attachment: fixed;
             height: 100dvh;
-        }
-        body {
             margin: 0;
-            padding: 0;
+            padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom) 0;
             width: 100%;
-            height: 100dvh;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            box-sizing: border-box;
         }
     </style>
 </html>
