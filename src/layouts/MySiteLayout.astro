@@ -7,7 +7,7 @@ import { ClientRouter } from "astro:transitions";
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <link rel="preload" href="/windows_xp_15.jpg" as="image">
         <ClientRouter />
     </head>
@@ -15,24 +15,23 @@ import { ClientRouter } from "astro:transitions";
         <slot />
     </body>
     <style>
-        body {
+        html {
             background-image: url('/windows_xp_15.jpg');
             background-size: cover;
             background-repeat: no-repeat;
-            min-height: 100vh;
             background-position: center;
             background-attachment: fixed;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            height: 100dvh;
         }
-        html,
         body {
             margin: 0;
             padding: 0;
             width: 100%;
-            min-height: 100dvh;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
     </style>
 </html>
