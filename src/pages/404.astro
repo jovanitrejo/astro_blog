@@ -1,0 +1,49 @@
+---
+import MySiteLayout from "../layouts/MySiteLayout.astro";
+---
+<MySiteLayout>
+    <div class="window" id="about">
+        <div class="title-bar">
+            <div class="title-bar-text">404 - Page Not Found</div>
+            <div class="title-bar-controls">
+                <a href="/" aria-label="Close" >
+                    <button aria-label="Close">
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="window-body">
+            <div class="window-spacing">
+                <p>Sorry, the page you're looking for doesn't exist.</p>
+                <a href="/" rel="noopener noreferrer">
+                    <button class="xp-button xp-primary">Okay</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</MySiteLayout>
+<style>
+    .window {
+        width: 300px;
+    }
+    .window-body {
+        overflow-y: auto;
+        overflow-x: hidden;
+        flex: 1;
+        min-height: 0;
+        margin: 0px 3px 0px 3px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .window-spacing {
+        padding: 10px;
+        background-color: white;
+        text-align: center;
+    }
+
+    .window-spacing p {
+        margin: 0;
+        text-align: center;
+    }
+</style>

@@ -21,7 +21,7 @@ const { Content } = await render(post)
             <div class="title-bar-controls">
             <button aria-label="Minimize"></button>
             <button aria-label="Maximize"></button>
-            <a href="/posts" >
+            <a href="/posts" aria-label="Close" >
                 <button aria-label="Close">
                 </button>
             </a>
@@ -37,12 +37,20 @@ const { Content } = await render(post)
 </MySiteLayout>
 <style>
     #post {
+        max-width: 700px;
+        height: 600px;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .window {
         width: 95%;
         max-width: 700px;
         height: 600px;
         max-height: 90vh;
         display: flex;
         flex-direction: column;
+        background-color: white;
     }
     .window-body {
         overflow-y: auto;
@@ -54,5 +62,13 @@ const { Content } = await render(post)
     .window-spacing {
         padding: 10px;
         background-color: white;
+    }
+
+    @media screen and (max-width: 576px) {
+      .window {
+        width: 95%;
+        height: 95dvh;
+        max-height: 95dvh;
+      }
     }
 </style>

@@ -1,0 +1,68 @@
+---
+import MySiteLayout from "../layouts/MySiteLayout.astro";
+import Image from "astro/components/Image.astro";
+import profilePicture from "../images/jovani_trejo.jpg";
+---
+
+<MySiteLayout>
+    <div class="window" id="about">
+        <div class="title-bar">
+            <div class="title-bar-text">About Me</div>
+            <div class="title-bar-controls">
+                <a href="/" aria-label="Close" >
+                    <button aria-label="Close">
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="window-body">
+            <div class="window-spacing">
+                <Image src={profilePicture} alt="Profile Picture" loading={'eager'} />
+                <h1>About me</h1>
+                <p>Hello! I'm Jovani. I'm currently a student at the University of Illinois Urbana-Champaign studying mathematics and computer science. I'm expected to graduate in the spring of 2027.</p>
+                <p>Prior to Illinois, I completed two years at University of Illinois Chicago, and I currently work as a student web developer under Student Affairs at UIC.</p>
+                <p>Feel free to connect with me on LinkedIn! This is where I share my thoughts and experiences on life.</p>
+                <a href="https://www.linkedin.com/in/jovanitrejo/" target="_blank" rel="noopener noreferrer">
+                    <button class="xp-button xp-primary">LinkedIn</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</MySiteLayout>
+<style>
+    #post {
+        max-width: 700px;
+        height: 600px;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .window {
+        width: 95%;
+        max-width: 700px;
+        height: 600px;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+    }
+    .window-body {
+        overflow-y: auto;
+        overflow-x: hidden;
+        flex: 1;
+        min-height: 0;
+        margin: 0px 3px 0px 3px;
+    }
+    .window-spacing {
+        padding: 10px;
+        background-color: white;
+    }
+
+    @media screen and (max-width: 576px) {
+      .window {
+        width: 95%;
+        height: 95dvh;
+        max-height: 95dvh;
+      }
+    }
+</style>
